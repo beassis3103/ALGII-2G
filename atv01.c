@@ -1,25 +1,29 @@
 #include <stdio.h>
 
-int main(){
-    int taxa, resto, i3, i5, valorFinal;
+int main (){
+    int taxa, selos3, selos5, i, resto;
 
     printf("Digite o valor da taxa: ");
     scanf("%d", &taxa);
 
-    if(taxa < 8){
-        printf("Valor mínimo é 8 centavos!");
+    while(taxa < 8){
+        printf("O valor mínimo é de 8 centavos, digite novamente: ");
+        scanf("%d", &taxa);
     }
 
-    if (taxa % 3 != 0){
-        for (i5 = 0; i5 <= taxa / 5; i5++ ) {
-        resto = taxa - (i5 * 5);
-        if(resto % 3 == 0){
-            i3 = resto / 3;
-            valorFinal = i3 + i5;
-        }
-    }
-        
+    selos5 = taxa / 5;
+    resto = taxa - (selos5 * 5);
+
+    i = resto % 3;
+    if (i != 0){
+        selos5 -= i;
+        resto = taxa - (selos5 * 5);
+    
     }
 
-     printf("Quantidade total de selos: %d\nQuantidade de selos de 3 centavos: %d\nQuantidade de selos de 5 centavos: %d\n", valorFinal, i3, i5);
+    selos3 = resto / 3;
+
+    printf("\nTaxa: %d \nQuantidade de selos de 3 centavos: %d\nQuantidade de selos de 5 cnetavos: %d\n\n", taxa, selos3, selos5);
+
+    return 0;
 }
