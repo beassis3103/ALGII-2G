@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 void rfunc(int n){
-    if( n == 0 ){
+    if( n < 2 ){
+        printf("%d", n);
         return;
     }
     rfunc(n/2);

@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int somaNum(int n){
-    if(n == 0){
+    if(n < 10){
         return n;
     }
 
